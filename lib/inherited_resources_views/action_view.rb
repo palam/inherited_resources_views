@@ -7,14 +7,14 @@ module InheritedResourcesViews
         end
       end
     end
-
+    
     class PathSet < ::ActionView::PathSet
-      def find(path, prefix = nil, partial = false, details = {}, key = nil, keys = [])
+      def find(path, prefix = nil, partial = false, details = {}, key = nil)
         super
       rescue ::ActionView::MissingTemplate
-        super(path, "inherited_resources", partial, details, key, keys)
+        super(path, "inherited_resources", partial, details, key)
       end
-
+      
       def find_template(original_template_path, format = nil, html_fallback = true)
         super
       rescue ::ActionView::MissingTemplate
